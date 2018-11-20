@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("$(document).ready(function () {\r\n    \r\n});\n\n//# sourceURL=webpack:///./js/app/app.js?");
+eval("$(document).ready(function () {\n    $('.img_slider').slick({\n        slidesToShow: 3,\n        prevArrow: '<div class=\"slick-prev\"><div class=\"slick-prev_wrap\"></div></div>',\n        nextArrow: '<div class=\"slick-next\"><div class=\"slick-next_wrap\"></div></div>'\n    });\n    \n    $('.video_slider').slick({\n        prevArrow: '<div class=\"slick-prev\"><div class=\"slick-prev_wrap\"></div></div>',\n        nextArrow: '<div class=\"slick-next\"><div class=\"slick-next_wrap\"></div></div>'\n    });\n    \n    $('.popup-youtube').magnificPopup({\n\t\tdisableOn: 700,\n\t\ttype: 'iframe',\n\t\tmainClass: 'mfp-fade',\n\t\tremovalDelay: 160,\n\t\tpreloader: false,\n\n\t\tfixedContentPos: false\n\t});\n});\n\n\n//# sourceURL=webpack:///./js/app/app.js?");
 
 /***/ }),
 
