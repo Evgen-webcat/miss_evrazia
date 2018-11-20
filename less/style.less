@@ -1,0 +1,254 @@
+//out: ../css/style.css, compress: true, autoprefixer: true
+@import "reset";
+@import "fonts";
+@import "color";
+@import "anim";
+
+body {
+    font-family: MullerRegular;
+}
+
+.text_gold {
+    color: @gold;
+    font-family: MullerMedium;
+}
+
+.button {
+    z-index: 1;
+    position: relative;
+    display: inline-block;
+    padding: 3px;
+    color: #fff;
+    font-size: .812rem;
+    box-shadow: 0px 6px 7.9px 2.1px rgba(0, 0, 0, 0.58);
+    background-image: linear-gradient(-45deg, #998349, #f2e9a6, #9a844a);
+
+    &_wrap {
+        position: relative;
+        padding: 30px 120px 30px 35px;
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            display: block;
+        }
+
+        &::before {
+            right: 55px;
+            width: 47px;
+            height: 1px;
+            background-color: #ffde88;
+            opacity: .21;
+        }
+
+        &::after {
+            right: 35px;
+            width: 7px;
+            height: 7px;
+            border-right: 1px solid #ffde88;
+            border-bottom: 1px solid #ffde88;
+            transform: rotate(-45deg)translateY(-50%);
+        }
+    }
+
+    &:hover {
+        background-image: linear-gradient(-45deg, #998349, #f2e9a6, #9a844a);
+    }
+}
+
+.header {
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px 8%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-family: MullerThin;
+
+    .menu {
+        &_point {
+            display: inline-block;
+            margin-right: 40px;
+            padding-top: 20px;
+
+            &:last-child {
+                margin: 0;
+            }
+
+            &_link {
+                color: #fff;
+                font-size: .875rem;
+                transition: .3s;
+
+                &:hover {
+                    color: @gold;
+                }
+            }
+        }
+    }
+
+    .header_contacts {
+        padding-top: 20px;
+
+        .tel {
+            margin-right: 20px;
+            color: #fff;
+            font-size: .875rem;
+
+            &:hover {
+                color: @gold;
+            }
+        }
+
+        .call {
+            color: @gold;
+            font-size: .75rem;
+            text-transform: uppercase;
+        }
+    }
+}
+
+.screen {
+    padding: 0 8%;
+    box-sizing: border-box;
+}
+
+.screen_1 {
+    position: relative;
+    height: 100vh;
+    background-color: #0e0e0e;
+    overflow: hidden;
+
+    .left_bg {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 65%;
+        transform: translate(-75%, 22%);
+    }
+
+    .right_bg {
+        z-index: 3;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        height: 73%;
+        transform: translateX(67%);
+    }
+
+    .miss {
+        z-index: 5;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 45vw;
+        max-height: 100%;
+        object-fit: contain;
+        object-position: bottom;
+    }
+
+    &_content {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        height: 100%;
+
+        &::after {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            bottom: 0;
+            right: 0;
+            display: block;
+            width: 100vh;
+            height: 100vh;
+            background-image: radial-gradient(50% 50%, rgb(34, 34, 34) 0%, rgb(14, 14, 14) 99%);
+        }
+
+        &_text {
+            width: 55%;
+            color: #fefefe;
+
+            &_info {
+                margin-bottom: 30px;
+                font-size: 1.25rem;
+                font-family: MullerThin;
+                text-transform: uppercase;
+            }
+
+            &_caption {
+                margin-bottom: 35px;
+                font-size: 4.25rem;
+                font-family: MullerBold;
+                text-transform: uppercase;
+            }
+
+            &_main_caption {
+                color: @gold;
+                font-size: 4.812rem;
+                font-family: MullerBold;
+                text-transform: uppercase;
+            }
+
+            &_button {
+                margin: 80px 0 120px;
+            }
+
+            &_paragraph {
+                margin-bottom: 15px;
+                font-size: .875rem;
+            }
+        }
+
+        &_img {
+            position: relative;
+            width: 45%;
+            height: 100%;
+
+            &_text {
+                z-index: 1;
+                position: absolute;
+                bottom: 10%;
+                left: 30%;
+                color: @gold;
+                font-size: 12.062rem;
+                font-family: MullerBold;
+                letter-spacing: 10px;
+                text-transform: uppercase;
+                opacity: .02;
+                transform: rotate(-90deg);
+                transform-origin: left;
+            }
+        }
+    }
+
+    .social {
+        z-index: 1;
+        position: absolute;
+        bottom: 60px;
+        left: 8%;
+
+        &_link {
+            margin-right: 20px;
+            color: #fefefe;
+            opacity: .3;
+
+            &:hover {
+                color: @gold;
+                opacity: 1;
+            }
+        }
+    }
+}
+
+@import "media";
