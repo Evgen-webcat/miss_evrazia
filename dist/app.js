@@ -93,18 +93,29 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("$(document).ready(function () {\n    $('.img_slider').slick({\n        slidesToShow: 3,\n        prevArrow: '<div class=\"slick-prev\"><div class=\"slick-prev_wrap\"></div></div>',\n        nextArrow: '<div class=\"slick-next\"><div class=\"slick-next_wrap\"></div></div>'\n    });\n    \n    $('.video_slider').slick({\n        prevArrow: '<div class=\"slick-prev\"><div class=\"slick-prev_wrap\"></div></div>',\n        nextArrow: '<div class=\"slick-next\"><div class=\"slick-next_wrap\"></div></div>'\n    });\n    \n    $('.popup-youtube').magnificPopup({\n\t\tdisableOn: 700,\n\t\ttype: 'iframe',\n\t\tmainClass: 'mfp-fade',\n\t\tremovalDelay: 160,\n\t\tpreloader: false,\n\n\t\tfixedContentPos: false\n\t});\n});\n\n\n//# sourceURL=webpack:///./js/app/app.js?");
+eval("$(document).ready(function () {\n    $('.img_slider').slick({\n        slidesToShow: 3,\n        prevArrow: '<div class=\"slick-prev\"><div class=\"slick-prev_wrap\"></div></div>',\n        nextArrow: '<div class=\"slick-next\"><div class=\"slick-next_wrap\"></div></div>'\n    });\n\n    $('.video_slider').slick({\n        prevArrow: '<div class=\"slick-prev\"><div class=\"slick-prev_wrap\"></div></div>',\n        nextArrow: '<div class=\"slick-next\"><div class=\"slick-next_wrap\"></div></div>'\n    });\n\n    $('.popup-youtube').magnificPopup({\n\t\tdisableOn: 700,\n\t\ttype: 'iframe',\n\t\tmainClass: 'mfp-fade',\n\t\tremovalDelay: 160,\n\t\tpreloader: false,\n\n\t\tfixedContentPos: false\n\t});\n});\n\n\n//# sourceURL=webpack:///./js/app/app.js?");
+
+/***/ }),
+
+/***/ "./js/app/counters.js":
+/*!****************************!*\
+  !*** ./js/app/counters.js ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("$(document).ready(function () {\r\n        var dials = document.getElementsByClassName(\"counter\");\r\n        var lineWidth = 3;\r\n        var borderColor = '#535353';\r\n        var color = '#f4d476';\r\n        var dayText = document.getElementById('days');\r\n        var hoursText = document.getElementById('hours');\r\n        var minutesText = document.getElementById('minutes');\r\n        var secondText = document.getElementById('seconds');\r\n    \r\n    function percentage (number, max) {\r\n        return (number/max) * 100;\r\n    }\r\n    \r\n    setInterval(function () {\r\n        var date = new Date();\r\n        var seconds = date.getSeconds();\r\n        var minutes = date.getMinutes();\r\n        var hours = date.getHours();\r\n        var days = date.getDate();\r\n        \r\n        dayText.innerText = days;\r\n        hoursText.innerText = hours;\r\n        minutesText.innerText = minutes;\r\n        secondText.innerText = seconds;\r\n        \r\n        \r\n        var numberA = [days, hours, minutes, seconds],\r\n            maxA = [31, 24, 60, 60];\r\n\r\n        for (i = 0; i < dials.length; i++) {\r\n            var width = dials[i].querySelector('.diagram').offsetWidth - lineWidth;\r\n            var procent = percentage (numberA[i], maxA[i]);\r\n            var canvas = dials[i].querySelector('.diagram_circle');\r\n            var context = canvas.getContext(\"2d\");\r\n            var radian = 2 * Math.PI * procent / 100;\r\n            context.clearRect(0, 0, width + lineWidth, width + lineWidth);\r\n            context.arc(width / 2 + lineWidth / 2, width / 2 + lineWidth / 2, width / 2, 0, 2 * Math.PI, false);\r\n            context.lineWidth = lineWidth;\r\n            context.strokeStyle = borderColor;\r\n            context.stroke();\r\n            context.beginPath();\r\n            context.arc(width / 2 + lineWidth / 2, width / 2 + lineWidth / 2, width / 2, 1.5 * Math.PI, radian + 1.5 * Math.PI, false);\r\n            context.strokeStyle = color;\r\n            context.stroke();\r\n            context.beginPath();\r\n        }\r\n    }, 1000);\r\n});\r\n\n\n//# sourceURL=webpack:///./js/app/counters.js?");
 
 /***/ }),
 
 /***/ 0:
-/*!*****************************!*\
-  !*** multi ./js/app/app.js ***!
-  \*****************************/
+/*!**************************************************!*\
+  !*** multi ./js/app/app.js ./js/app/counters.js ***!
+  \**************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = __webpack_require__(/*! ./js/app/app.js */\"./js/app/app.js\");\n\n\n//# sourceURL=webpack:///multi_./js/app/app.js?");
+eval("__webpack_require__(/*! ./js/app/app.js */\"./js/app/app.js\");\nmodule.exports = __webpack_require__(/*! ./js/app/counters.js */\"./js/app/counters.js\");\n\n\n//# sourceURL=webpack:///multi_./js/app/app.js_./js/app/counters.js?");
 
 /***/ })
 
