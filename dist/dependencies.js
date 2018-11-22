@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("window.jQuery = window.$ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n__webpack_require__(/*! slick-carousel */ \"./node_modules/slick-carousel/slick/slick.js\");\n__webpack_require__(/*! ./magnific-popup */ \"./js/magnific-popup.js\");\n\n\n//# sourceURL=webpack:///./js/dependencies.js?");
+eval("window.jQuery = window.$ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n__webpack_require__(/*! slick-carousel */ \"./node_modules/slick-carousel/slick/slick.js\");\n__webpack_require__(/*! ./magnific-popup */ \"./js/magnific-popup.js\");\n\n//# sourceURL=webpack:///./js/dependencies.js?");
 
 /***/ }),
 

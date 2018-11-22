@@ -16,6 +16,10 @@ body {
     font-family: MullerMedium;
 }
 
+.ymaps-2-1-71-ground-pane {
+    filter: grayscale(100%);
+}
+
 .button {
     z-index: 1;
     position: relative;
@@ -127,7 +131,7 @@ body {
 
 .header {
     z-index: 10;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     padding: 20px 8%;
@@ -136,6 +140,20 @@ body {
     justify-content: space-between;
     width: 100%;
     font-family: MullerThin;
+    transition: .3s;
+
+    &.fixed {
+        background-color: #0e0e0e;
+
+        .logo {
+            height: 55px;
+        }
+    }
+
+    .logo {
+        height: 101px;
+        transition: .3s;
+    }
 
     .menu {
         &_point {
@@ -148,12 +166,25 @@ body {
             }
 
             &_link {
+                position: relative;
                 color: #fff;
                 font-size: .875rem;
                 transition: .3s;
 
-                &:hover {
-                    color: @gold;
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: -5px;
+                    left: 0;
+                    display: block;
+                    width: 0;
+                    height: 1px;
+                    background-color: @gold;
+                    transition: .3s;
+                }
+
+                &:hover::after {
+                    width: 100%;
                 }
             }
         }
@@ -305,6 +336,7 @@ body {
         &_link {
             margin-right: 20px;
             color: #fefefe;
+            font-size: .75rem;
             opacity: .3;
 
             &:hover {
@@ -743,13 +775,13 @@ body {
 }
 
 .screen_8 {
-    padding-top: 0;
-    padding-bottom: 0;
+    padding: 0 60px 0 8%;
     display: flex;
     background-color: #0e0e0e;
 
     &_form {
-        padding: 100px 0;
+        padding: 100px 20% 100px 0;
+        box-sizing: border-box;
         width: 60%;
 
         &_caption {
@@ -775,14 +807,13 @@ body {
                 .input {
                     display: block;
                     float: right;
-                    width: 50%;
+                    width: 49%;
                     height: ~'calc(100% - 2px)';
                     color: @gold;
                     font-size: .75rem;
                     font-family: MullerMedium;
                     border: none;
                     background-color: transparent;
-                    outline: none;
 
                     &:focus {
                         border-bottom: 1px solid @gold;
@@ -816,7 +847,169 @@ body {
         &_miss {
             width: 100%;
         }
+    }
+}
 
+.screen_9 {
+    &_caption {
+        margin-bottom: 90px;
+        font-size: 2.625rem;
+        font-family: MullerBold;
+        text-transform: uppercase;
+    }
+
+    .partners_slider {
+        .partners_slide {
+            height: 150px;
+
+            &_wrap {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+
+            }
+
+            &_img {
+                max-width: 70%;
+                max-height: 100%;
+                filter: grayscale(100%);
+                transition: .3s;
+
+                &:hover {
+                    filter: grayscale(0);
+                }
+            }
+        }
+    }
+}
+
+.screen_10 {
+    display: flex;
+    height: 450px;
+
+    .address {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        width: 630px;
+        height: 100%;
+        background-color: #131313;
+        box-shadow: 0px 21px 27px 0px rgba(0, 0, 0, 0.33);
+        overflow: hidden;
+
+        &_bg_left {
+            position: absolute;
+            top: -100px;
+            left: -170px;
+        }
+
+        &_bg_right {
+            position: absolute;
+            bottom: -130px;
+            right: -80px;
+        }
+
+        &_content {
+            display: inline-block;
+            padding-top: 100px;
+
+            &_paragraph {
+                margin-bottom: 25px;
+                color: #fff;
+                font-size: .75rem;
+                text-transform: uppercase;
+
+                &_link {
+                    padding-left: 15px;
+                    color: @gold;
+                    font-size: .875rem;
+                    font-family: MullerLight;
+                    text-transform: none;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+
+                &_part {
+                    padding-left: 15px;
+                    color: @gold;
+                    font-size: .875rem;
+                    font-family: MullerLight;
+                    text-transform: none;
+                }
+            }
+
+            .social {
+                margin: 70px 0 90px;
+
+                &_link {
+                    margin-right: 20px;
+                    color: #fefefe;
+                    font-size: .75rem;
+                    font-family: MullerThin;
+                    opacity: .3;
+                    transition: .3s;
+
+                    &:hover {
+                        color: @gold;
+                        opacity: 1;
+                    }
+                }
+            }
+
+            &_logo {
+                &_img {
+                    margin-right: 20px;
+                }
+            }
+        }
+    }
+
+    .map {
+        width: ~"calc(100% - 630px)";
+        height: 100%;
+        box-shadow: 0 21px 27px 0 rgba(0, 0, 0, 0.33);
+    }
+}
+
+.footer {
+    padding: 50px 8% 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    font-family: MullerThin;
+    background-color: #131313;
+
+    &_info {
+        width: 50%;
+
+        &_caption {
+            margin-bottom: 35px;
+            color: #fff;
+            font-size: .75rem;
+        }
+
+        &_paragraph {
+            color: #6b6b6b;
+            font-size: .687rem;
+        }
+    }
+
+    .webcat {
+        color: #fff;
+        font-size: .75rem;
+
+        &_link {
+            color: @gold;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
     }
 }
 

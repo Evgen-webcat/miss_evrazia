@@ -14,11 +14,10 @@ $(document).ready(function () {
 
     setInterval(function () {
         var date = new Date();
-        var seconds = date.getSeconds();
-        var minutes = date.getMinutes();
-        var hours = date.getHours();
+        var seconds = 60 - date.getSeconds();
+        var minutes = 60 - date.getMinutes();
+        var hours = 24 - date.getHours();
         var days = date.getDate();
-
         dayText.innerText = days;
         hoursText.innerText = hours;
         minutesText.innerText = minutes;
