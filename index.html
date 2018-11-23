@@ -12,20 +12,23 @@
 <body>
     <header class="header">
         <img src="img/logo.png" alt="logo" class="logo">
-        <nav>
+        <nav class="menu_wrap">
             <ul class="menu">
-                <li class="menu_point"><a href="#screen-1" class="menu_point_link">О Конкурсе</a></li>
-                <li class="menu_point"><a href="#screen-2" class="menu_point_link">Медиа</a></li>
-                <li class="menu_point"><a href="#screen-3" class="menu_point_link">Условия участия</a></li>
-                <li class="menu_point"><a href="#screen-4" class="menu_point_link">Регистрация</a></li>
-                <li class="menu_point"><a href="#screen-5" class="menu_point_link">Партнеры</a></li>
-                <li class="menu_point"><a href="#screen-6" class="menu_point_link">Контакты</a></li>
+                <li class="menu_point"><a href="#screen-1" class="menu_point_link link">О Конкурсе</a></li>
+                <li class="menu_point"><a href="#screen-2" class="menu_point_link link">Медиа</a></li>
+                <li class="menu_point"><a href="#screen-3" class="menu_point_link link">Условия участия</a></li>
+                <li class="menu_point"><a href="#screen-4" class="menu_point_link link">Регистрация</a></li>
+                <li class="menu_point"><a href="#screen-5" class="menu_point_link link">Партнеры</a></li>
+                <li class="menu_point"><a href="#screen-6" class="menu_point_link link">Контакты</a></li>
             </ul>
         </nav>
         <div class="header_contacts">
             <a href="tel:+375333435673" class="tel">+375 (33) 343-56-73</a>
             <a href="#" class="call">Позвоните мне</a>
         </div>
+        <a href="#" class="burger">
+            <div class="burger_line"></div>
+        </a>
     </header>
     <main>
         <section class="screen screen_1">
@@ -37,7 +40,7 @@
                     <p class="screen_1_content_text_info">Первый беларуский региональный отбор на международный</p>
                     <h3 class="screen_1_content_text_caption">КОНКУРС КРАСОТЫ</h3>
                     <h1 class="screen_1_content_text_main_caption">“Мисс Евразия”</h1>
-                    <a href="#" class="button screen_1_content_text_button">
+                    <a href="#screen-4" class="button screen_1_content_text_button link">
                         <div class="button_wrap">ХОЧУ УЧАСТВОВАТЬ</div>
                     </a>
                     <p class="screen_1_content_text_paragraph">Основной призовой фонд конкурса составляет <span class="text_gold">15.000 USD</span> – драгоценности, меха, брендовые вещи и аксессуары.</p>
@@ -48,8 +51,8 @@
                 </div>
             </div>
             <div class="social">
-                <a href="#" class="social_link">Instagram</a>
-                <a href="#" class="social_link">YouTube</a>
+                <a href="https://www.instagram.com/eurasia_stars/?hl=ru" class="social_link" target="_blank">Instagram</a>
+                <a href="https://www.youtube.com/channel/UCEjmJDmm_d9Qe9yQVE34u0w" class="social_link" target="_blank">YouTube</a>
             </div>
         </section>
         <section class="screen screen_2">
@@ -280,7 +283,7 @@
                     <div class="counter_text">секунд</div>
                 </div>
             </div>
-            <a href="#" class="button screen_6_button">
+            <a href="#screen-4" class="button screen_6_button link">
                 <div class="button_wrap">ХОЧУ УЧАСТВОВАТЬ</div>
             </a>
         </section>
@@ -322,27 +325,27 @@
                 <form class="form" id="form">
                     <label class="label">
                         ФИО
-                        <input type="text" class="input">
+                        <input type="text" class="input" name="name">
                     </label>
                     <label class="label">
                         ТЕЛЕФОН
-                        <input type="text" class="input">
+                        <input type="text" class="input phone_input" name="tel" required>
                     </label>
                     <label class="label">
                         E-mail
-                        <input type="email" class="input">
+                        <input type="email" class="input" name="mail">
                     </label>
                     <label class="label">
                         ваши параметры
-                        <input type="text" class="input">
+                        <input type="text" class="input" name="options">
                     </label>
                     <label class="label">
                         ссылка на соц сети
-                        <input type="text" class="input">
+                        <input type="text" class="input" name="social">
                     </label>
                     <label class="label">
                         Участвовали ранее в конкурсах красоты?
-                        <input type="text" class="input">
+                        <input type="text" class="input" name="participation">
                     </label>
                     <div class="info">*за участие в первом этапе предполагается орг.взнос</div>
                     <button class="button form_button">
@@ -404,8 +407,8 @@
                         <span class="address_content_paragraph_part">Беларусь, Минск, Белорусская 15</span>
                     </p>
                     <div class="social">
-                        <a href="#" class="social_link">Instagram</a>
-                        <a href="#" class="social_link">YouTube</a>
+                        <a href="https://www.instagram.com/eurasia_stars/?hl=ru" class="social_link" target="_blank">Instagram</a>
+                        <a href="https://www.youtube.com/channel/UCEjmJDmm_d9Qe9yQVE34u0w" class="social_link" target="_blank">YouTube</a>
                     </div>
                     <div class="address_content_logo">
                         <img src="img/address_logo.png" alt="logo" class="address_content_logo_img">
@@ -425,6 +428,24 @@
                 <a href="https://webcat.by" class="webcat_link" target="_blank">webcat.by</a>
             </div>
         </footer>
+        <div class="locker"></div>
+        <div class="modal">
+          <a href="#" class="close_button"></a>
+           <h3 class="modal_caption">Заполните поля ниже</h3>
+            <form class="form" id="call">
+                <label class="label">
+                    Ваше имя
+                    <input type="text" class="input" name="name">
+                </label>
+                <label class="label">
+                    Ваш телефон
+                    <input type="text" class="input phone_input" name="tel" required>
+                </label>
+                <button class="button modal_button">
+                    <div class="button_wrap">Отправить</div>
+                </button>
+            </form>
+        </div>
     </main>
     <script src="dist/dependencies.js"></script>
     <script src="https://api-maps.yandex.ru/2.1.71/?lang=ru_RU" type="text/javascript"></script>

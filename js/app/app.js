@@ -1,14 +1,30 @@
 $(document).ready(function () {
-    $('.menu_point_link').click(function () {
+    $('.link').click(function (event) {
+        event.preventDefault();
+
         var screen = $(this).attr('href');
-        var scrollTo = $(screen).offset().top;
-        console.log(screen);
-        console.log(scrollTo);
+        var scrollTo = $(screen).offset().top - 50;
 
         $('html, body').animate({
             scrollTop: scrollTo
         }, 1000);
     });
+
+    $('.burger').click(function (event) {
+        event.preventDefault();
+
+        $(this).toggleClass('open');
+        $('.menu_wrap').fadeToggle(300);
+    });
+
+    if ($(window).width() <= 1200) {
+        $('.menu_point_link').click(function (event) {
+            event.preventDefault();
+
+            $('.burger').toggleClass('open');
+            $('.menu_wrap').fadeToggle(300);
+        });
+    }
 
     $(window).scroll(function () {
         if ($(this).scrollTop() > 140) {
@@ -16,6 +32,18 @@ $(document).ready(function () {
         } else {
             $('.header').removeClass('fixed');
         }
+    });
+
+    $('.call').click(function (event) {
+        event.preventDefault();
+
+        $('.locker, .modal').fadeIn();
+    });
+
+    $('.close_button, .locker').click(function (event) {
+        event.preventDefault();
+
+        $('.locker, .modal').fadeOut();
     });
 
     $('.img_slider').slick({
@@ -73,5 +101,52 @@ $(document).ready(function () {
         preloader: false,
 
         fixedContentPos: false
+    });
+
+    $('.phone_input').each(function () {
+        $(this).mask('+375 (99) 999-99-99');
+
+        $(this).click(function () {
+            if ($(this).val() == '+375 (__) ___-__-__') {
+                $(this).setCursorPosition(6);
+            }
+        });
+    });
+
+    $.fn.setCursorPosition = function (pos) {
+        if ($(this).get(0).setSelectionRange) {
+            $(this).get(0).setSelectionRange(pos, pos);
+        } else if ($(this).get(0).createTextRange) {
+            var range = $(this).get(0).createTextRange();
+
+            range.collapse(true);
+            range.moveEnd('character', pos);
+            range.moveStart('character', pos);
+            range.select();
+        }
+    };
+
+    $('#form').on('submit', function (event) {
+        event.preventDefault();
+        var form = $(this).serialize();
+        $.ajax({
+            url: 'send.php',
+            data: form,
+            success: function () {
+                window.location.href = 'thanks.html';
+            }
+        });
+    });
+
+    $('#call').on('submit', function (event) {
+        event.preventDefault();
+        var form = $(this).serialize();
+        $.ajax({
+            url: 'send-phone.php',
+            data: form,
+            success: function () {
+                window.location.href = 'thanks.html';
+            }
+        });
     });
 });
